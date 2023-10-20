@@ -1,25 +1,33 @@
 export class Search {
-  constructor(view) {
+  constructor(view, api) {
     this.view = view;
+    this.api = api;
     this.view.searchInput.addEventListener('keyup', this.debounce(this.searchRepos.bind(this), 500))
   }
 
-  async searchRepos() {
+  searchRepos() {
     if (this.view.searchInput.value) {
       this.clearList();
-    return await fetch(`https://api.github.com/search/repositories?q=${this.view.searchInput.value}&per_page=5`)
-    .then(res => {
-      if (res.ok) {
-        res.json().then(res => {
-          console.log(res);
-          res.items.forEach(repoName => {
-            this.view.searchedRepo(repoName)
-          });
-        })
-      }
-    })
+      this.repoRequest()
     } else {
       this.clearList();
+    }
+  }
+
+  async repoRequest() {
+    try {
+      await this.api.loadRepos(this.view.searchInput.value).then(res => {
+        if (res.ok) {
+          res.json().then(res => {
+            console.log(res);
+            res.items.forEach(repoName => {
+              this.view.searchedRepo(repoName)
+            });
+          })
+        }
+      })
+    } catch(err) {
+        console.log('Error: ' + err)
     }
   }
 

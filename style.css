@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+.app {
+  overflow: auto;
+  position: absolute;
+  width: 360px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family:'Roboto', sans-serif;
+  background-color: #C4C4C4;
+}
+
+.search-line {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 25px;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.resultList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background-color: #E3E3E3;
+  border-radius: 5px;
+}
+
+.repoName {
+  padding: 2px 4px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  border-top: none;
+}
+
+.repoName :hover {
+  background-color: #65CDF9;
+}
+
+.selectedList {
+  padding-left: 40px;
+  padding-right: 40px;
+  list-style-type: none;
+}
+
+.select-block {
+  position: relative;
+  padding: 3px;
+  border: 1px solid #000;
+  margin-bottom: -1px;
+  line-height: 20px;
+  background-color: #E27BEB;
+}
+
+.close-button {
+  top: 20px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  cursor: pointer;
+}
