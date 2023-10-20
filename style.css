@@ -44,7 +44,7 @@ html {
   border-top: none;
 }
 
-.repoName :hover {
+.repoName:hover {
   background-color: #65CDF9;
 }
 
